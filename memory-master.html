@@ -545,4 +545,19 @@
     createBoard();
   });
 
- 
+  soundGroup.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    [...soundGroup.children].forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    soundOn = btn.dataset.sound === 'on';
+  });
+
+  restartBtn.addEventListener('click', createBoard);
+  hintBtn.addEventListener('click', peekHint);
+
+  createBoard();
+</script>
+
+</body>
+</html>
